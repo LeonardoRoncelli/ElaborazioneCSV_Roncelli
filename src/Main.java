@@ -28,5 +28,16 @@ public class Main {
         }catch (IOException e){
             e.printStackTrace();
         }
+        String[]file2=file.get(0).split(";");
+        System.out.println("Numero di campi: "+file2.length);
+        int max=file.get(0).length();
+        int indice=0;
+        for(int i=1;i< file.size();i++){
+            if(file.get(i).length()>max){
+                max=file.get(i).length();
+                indice=i;
+            }
+        }
+        System.out.println("Massimo: "+max);
     }
 }
