@@ -81,5 +81,19 @@ public class Main {
         if (siglaTrovata==false){
             System.out.println("Sigla inesistente");
         }
+        String[] riga= file.get(1).split(";");
+        for(int i=0;i< riga.length;i++){
+            riga[i]="modifica";
+        }
+        String totale=riga[0]+";"+riga[1]+";"+riga[2];
+        file.set(1,totale);
+        try(BufferedWriter bw=new BufferedWriter(new FileWriter("roncelli.csv"))) {
+            for(int i=0;i< file.size();i++){
+                bw.write(file.get(i));
+                bw.newLine();
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
