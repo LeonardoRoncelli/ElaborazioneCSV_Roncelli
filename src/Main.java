@@ -35,9 +35,10 @@ public class Main {
         for(int i=1;i< file.size();i++){
             if(file.get(i).length()>max){
                 max=file.get(i).length();
-                indice=i;
+                indice=i+1;
             }
         }
         System.out.println("Massimo: "+max);
+        System.out.println("Riga che contiene il recordo più lungo: "+indice);
     }
 }
