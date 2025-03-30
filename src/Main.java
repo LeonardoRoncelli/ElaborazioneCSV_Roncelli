@@ -2,8 +2,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
         ArrayList<String> file = new ArrayList<String>();
         Random random = new Random();
         try (BufferedReader br = new BufferedReader(new FileReader("roncelli.csv"))) {
@@ -40,7 +42,7 @@ public class Main {
         }
         System.out.println("Massimo: " + max);
         System.out.println("Riga che contiene il recordo più lungo: " + indice);
-        System.out.println(file.get(indice - 1));
+        //System.out.println(file.get(indice - 1));
         for(int i=0;i< file.size();i++){
             String riga=file.get(i);
             if(riga.length()<max){
@@ -65,6 +67,19 @@ public class Main {
             bw.write(nuovoRecord);
         }catch (IOException e){
             e.printStackTrace();
+        }
+        System.out.println("Inserisci la sigla della provincia da ricercare: ");
+        String sigla=input.next();
+        boolean siglaTrovata=false;
+        for(int i=0;i< file.size();i++){
+            String[]riga=file.get(i).split(";");
+            if(riga.length>7&&riga[7].equalsIgnoreCase(sigla)){
+                System.out.println(file.get(i));
+                siglaTrovata=true;
+            }
+        }
+        if (siglaTrovata==false){
+            System.out.println("Sigla inesistente");
         }
     }
 }
