@@ -59,5 +59,12 @@ public class Main {
         }catch (IOException e){
             e.printStackTrace();
         }
+        try(BufferedWriter bw=new BufferedWriter(new FileWriter("roncelli.csv",true))){
+            String nuovoRecord;
+            nuovoRecord="NuovoComune;NuovaProvincia;NuovaRegione;NuovoTipo ufficio;NuovaDenominazione ufficio;NuovoIndirizzo;NuovoCAP;NuovaSigla provincia;NuovoTelefono;NuovoFAX;NuovaEmail;NuovoH24 (SI/NO);NuovoIndirizzo internet;NuovaLatitudine;NuovaLongitudine";
+            bw.write(nuovoRecord);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
